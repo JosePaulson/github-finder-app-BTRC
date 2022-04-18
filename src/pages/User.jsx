@@ -5,9 +5,10 @@ import GithubContext from '../context/github/GithubContext';
 import {useParams} from 'react-router-dom'
 import {loader} from '../components/users/UserResults'
 import RepoList from '../components/repos/RepoList';
+import {getUserAndRepos} from '../context/github/GithubActions'
 // import RepoItem from '../components/repos/RepoItem';
 function User() {
-    const { getUser, user, isLoading} = useContext(GithubContext)
+    const { repos, user, isLoading, dispatch } = useContext(GithubContext)
     const params = useParams()
     const {
         name,
@@ -27,7 +28,13 @@ function User() {
     } = user
     
     useEffect(()=>{
-        getUser(params.login)
+        dispatch({type: 'SET_LOADING'})
+        async function getAsyncData () {
+          const data = await getUserAndRepos(params.login)
+          dispatch({type:'GET_USER_AND_REPOS', payload:data})
+        }
+
+        getAsyncData()
         // eslint-disable-next-line
     }, [])
 
@@ -153,7 +160,7 @@ function User() {
                     </div>
                 </div>
                 <div>
-                    <RepoList />
+                    <RepoList repos={repos}/>
                 </div>
         </div>
     )

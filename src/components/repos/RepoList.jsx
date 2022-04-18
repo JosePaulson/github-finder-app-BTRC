@@ -1,17 +1,5 @@
-import GithubContext from "../../context/github/GithubContext";
-import { useContext, useEffect } from 'react'
-import { useParams } from "react-router-dom";
 import RepoItem from "./RepoItem";
-function RepoList() {
-    const {repos, getRepos} = useContext(GithubContext)
-
-    const params = useParams()
-
-    useEffect(()=>{
-        getRepos(params.login)
-        // eslint-disable-next-line
-    }, [])
-
+function RepoList({repos}) {
     return ( 
         <div className='card rounded-lg shadow-lg bg-base-100'>
             <div className="card-body">
@@ -23,7 +11,7 @@ function RepoList() {
                 })}
             </div>
         </div>
-     );
+    );
 }
 
 export default RepoList;
