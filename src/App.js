@@ -18,7 +18,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/notfound' element={<NotFound />} />
-                <Route path='/*' element={<NotFound />} />
+                <Route path='https://stately-choux-7331ff.netlify.app/*' element={<NotFound />} />
                 <Route path='/user/:login' element={<User />} />
               </Routes>
             </main>
