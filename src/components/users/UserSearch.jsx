@@ -48,13 +48,13 @@ function UserSearch() {
                     <div className="flex">
                         <input
                             type="text"
-                            className="bg-gray-200 rounded rounded-r-none input input-lg text-black focus:outline-none"
+                            className="bg-gray-200 rounded rounded-r-none input sm:input-lg text-black focus:outline-none"
                             placeholder="Search"
                             onChange={handleChange}
                             value={text}
                         />
                         <button
-                            className="btn btn-lg top-0 right-0 rounded-l-none w-36 focus:outline-none"
+                            className="btn sm:btn-lg top-0 right-0 rounded-l-none w-[7rem] sm:w-36 focus:outline-none"
                             type="submit"
                         >
                             go

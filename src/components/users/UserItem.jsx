@@ -3,7 +3,6 @@ import { useContext } from 'react'
 import {Link} from 'react-router-dom'
 function UserItem () {                      
     const {users} = useContext(GithubContext)
-    console.log('rendering')
     return ( 
         users.map((user)=>{
             return (
